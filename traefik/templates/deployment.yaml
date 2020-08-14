@@ -52,6 +52,9 @@ spec:
       serviceAccountName: {{ include "traefik.serviceAccountName" . }}
       terminationGracePeriodSeconds: 60
       hostNetwork: {{ .Values.hostNetwork }}
+      {{- if .Values.dnsPolicy }}
+      dnsPolicy: {{ .Values.dnsPolicy }}
+      {{- end }}
       {{- with .Values.deployment.initContainers }}
       initContainers:
       {{- toYaml . | nindent 6 }}

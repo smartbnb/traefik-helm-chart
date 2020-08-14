@@ -206,6 +206,9 @@ persistence:
 # affinity is left as default.
 hostNetwork: false
 
+# Can be used to override the default dnsPolicy (e.g. when using Host networking)
+dnsPolicy: false
+
 # Whether Role Based Access Control objects like roles and rolebindings should be created
 rbac:
   enabled: true

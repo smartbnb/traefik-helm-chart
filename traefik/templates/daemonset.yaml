@@ -33,6 +33,9 @@ spec:
       serviceAccountName: {{ template "traefik.fullname" . }}
       terminationGracePeriodSeconds: 60
       hostNetwork: {{ .Values.hostNetwork }}
+      {{- if .Values.dnsPolicy }}
+      dnsPolicy: {{ .Values.dnsPolicy }}
+      {{- end }}
       containers:
       - image: {{ .Values.image.name }}:{{ .Values.image.tag }}
         name: {{ template "traefik.fullname" . }}
